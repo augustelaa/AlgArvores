@@ -35,10 +35,17 @@ public class mainTeste {
 		NoArvore<Integer> n11 = new NoArvore<Integer>(11);
 		n9.inserirFilho(n11);
 		
+		NoArvore<Integer> n12 = new NoArvore<Integer>(12);
+		n9.inserirFilho(n12);
+		
+		NoArvore<Integer> n13 = new NoArvore<Integer>(13);
+		n10.inserirFilho(n13);
+		
 		Arvore<Integer> a = new Arvore<>();
 		a.setRaiz(n1);
 		
-		System.out.println(a.getAlturaMaxima());
+		System.out.println(a.getAltura());
+		System.out.println(a.getNivel(10));
 		
 	}
 

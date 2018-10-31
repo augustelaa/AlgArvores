@@ -8,7 +8,6 @@ public class NoArvore<T> {
 	private T info;
 	private NoArvore<T> filho;
 	private NoArvore<T> irmao;
-	private int altura;
 	
 	public NoArvore(T info) {
 		this.info = info;
@@ -40,18 +39,42 @@ public class NoArvore<T> {
 		return null;
 	}
 	
-	public int getAltura(int altura) {
-		this.altura = altura;
+	public int getNivel(T info, int altura) {
+		if (this.info.equals(info)) {
+			return altura;
+		}
 		if (this.filho != null) {
-			int alturaFilho = this.filho.getAltura(altura+1);
-			if (alturaFilho > altura) {
-				return alturaFilho;
+			int nivel = this.filho.getNivel(info, altura+1);
+			if (nivel != -1) {
+				return nivel;
 			}
 		}
 		if (this.irmao != null) {
-			this.irmao.getAltura(altura);
+			int nivel = this.irmao.getNivel(info, altura);
+			if (nivel != -1) {
+				return nivel;
+			}
 		}
-		return altura;
+		return -1;
+	}
+	
+	public int getAltura(int altura) {
+		int alturaAux = altura;
+		if (this.filho != null) {
+			int nivel = this.filho.getAltura(altura+1);
+			if (nivel > altura) {
+				alturaAux = nivel;
+			}
+		}
+		
+		if (this.irmao != null) {	
+			int nivel = this.irmao.getAltura(altura);
+			if (nivel > alturaAux) {
+				alturaAux = nivel;
+			}
+			
+		}
+		return alturaAux;
 	}
 	
 	public NoArvore<T> getFilho() {

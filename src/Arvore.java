@@ -19,11 +19,20 @@ public class Arvore<T> {
 		}
 		return this.raiz.pertence(info);
 	}
-	public int getAlturaMaxima() {
+	public int getNivel(T info) {
+		if (vazia()) {
+			return -1;
+		}
+		return this.raiz.getNivel(info, 0);
+	}
+	public int getAltura() {
 		if (vazia()) {
 			return -1;
 		}
 		return this.raiz.getAltura(0);
+	}
+	public boolean isDegenerada() {
+		
 	}
 	public boolean vazia() {
 		return getRaiz() == null;
