@@ -77,6 +77,22 @@ public class NoArvore<T> {
 		return alturaAux;
 	}
 	
+	public boolean isDegenerada(int altura, int alturaArvore) {
+		if (this.filho != null) {
+			if(this.filho.isDegenerada(altura+1, alturaArvore))
+				return true;
+		}
+		
+		if (this.irmao != null) {
+			if (this.irmao.isDegenerada(altura, alturaArvore))
+				return true;
+		}
+		if (alturaArvore - altura > 1 && this.filho == null) {
+			return true;
+		}
+		return false;
+	}
+	
 	public NoArvore<T> getFilho() {
 		return filho;
 	}

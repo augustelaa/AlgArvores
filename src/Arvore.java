@@ -32,7 +32,11 @@ public class Arvore<T> {
 		return this.raiz.getAltura(0);
 	}
 	public boolean isDegenerada() {
-		
+		if (vazia()) {
+			return false;
+		}
+		int altura = getAltura();
+		return this.raiz.isDegenerada(0, altura);		
 	}
 	public boolean vazia() {
 		return getRaiz() == null;
