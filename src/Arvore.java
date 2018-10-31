@@ -42,6 +42,8 @@ public class Arvore<T> {
 		return getRaiz() == null;
 	}
 	public String toString() {
-		return null;
+		if(!vazia())
+			return raiz.imprimePre();
+		return "()";
 	}
 }

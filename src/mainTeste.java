@@ -81,11 +81,11 @@ public class mainTeste {
 		raiz.inserirFilho(nb6);
 		raiz.inserirFilho(nb2);
 		
-		NoArvore<Integer> nb11 = new NoArvore<Integer>(10);
-		nb6.inserirFilho(nb11);
+		NoArvore<Integer> nb11 = new NoArvore<Integer>(11);
+//		nb6.inserirFilho(nb11);
 		
 		NoArvore<Integer> nb12 = new NoArvore<Integer>(12);
-		nb4.inserirFilho(nb12);
+//		nb4.inserirFilho(nb12);
 		
 		
 		Arvore<Integer> b = new Arvore<>();
@@ -95,6 +95,7 @@ public class mainTeste {
 		System.out.println(b.getNivel(6));
 		
 		System.out.println(b.isDegenerada());
+		System.out.println(b.toString());
 		
 	}
 

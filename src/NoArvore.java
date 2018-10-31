@@ -12,9 +12,20 @@ public class NoArvore<T> {
 	public NoArvore(T info) {
 		this.info = info;
 	}	
-	protected String imprimePre() {
-		return null;
-	}
+	public String imprimePre() {
+        String texto = "(" + this.getInfo();
+        
+        if (this.filho != null) {
+        	texto += this.filho.imprimePre() + ")";
+		} else {
+			texto += ")";
+		}
+		if (this.irmao != null) {
+			texto += this.irmao.imprimePre();
+		}
+
+        return texto;
+    }
 	public void inserirFilho(NoArvore<T> filho) {
 		filho.irmao = this.filho;
 		this.filho = filho;
